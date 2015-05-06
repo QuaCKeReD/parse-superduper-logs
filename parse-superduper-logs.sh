@@ -120,7 +120,7 @@ do
 		if [ "$PROBLEMS" = "yes" ]
 		then
 				# Send a push message that problems were encountered
-			po.sh "$HOST SuperDuper encountered problems: see \"$TEXT\" for details"
+			po.sh "$HOST\nSuperDuper encountered problems: see \"$TEXT\" for details"
 
 				# Move the log file to the desktop so we can easily review it later
 				# and so we won't parse it again
@@ -130,7 +130,7 @@ do
 			COPIED=`egrep 'Copied .*items totaling' "$TEXT" | sed 's#.*Copied#Copied#g' | tr -s ' '  ' '`
 
 				# Send a push notification with a summary of the information from the log
-			po.sh "$HOST SuperDuper: $WARNINGS_OR_ERRORS.\n\nStarted on $START_TIME and finished at $END_TIME.\n\n$PHASES\n\n$COPIED \n\nSee \"$URL_LOG\" for full log.\n"
+			po.sh "$HOST\nSuperDuper: $WARNINGS_OR_ERRORS.\n\nStarted on $START_TIME and finished at $END_TIME.\n\n$PHASES\n\n$COPIED \n\nSee \"$URL_LOG\" for full log.\n"
 
 				# Move the original log file to the trash
 				# where it can be either retrieved later (if needed) or permanently deleted
