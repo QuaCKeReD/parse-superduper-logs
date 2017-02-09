@@ -9,6 +9,7 @@
 # Date:	2014-05-10
 
 NAME="$0:t:r"
+PATH="$HOME/bin:$PATH"
 
 if ((! $+commands[po.sh] ))
 then
@@ -38,13 +39,13 @@ HOST="$HOST:l"
 	# This is where I store logs
 	# You will almost certainly want to change the "Sites/logs.luo.ma"
 	# part to something more meaningful to your setup
-LOG="$HOME/Dropbox/Sites/logs.luo.ma/$HOST/$NAME/$TIME.txt"
+LOG="$HOME/web/www.quackered.co.uk/super-duper-logs/$HOST/$NAME/$TIME.txt"
 
 	# This is an URL that I can click to view the whole log
 	# if the push notification does not show it all.
 	#
 	# Again, you will need to change this to whatever fits your setup
-URL_LOG="http://logs.luo.ma/$HOST/$NAME/$TIME.txt"
+URL_LOG="http://www.quackered.co.uk/super-duper-logs/$HOST/$NAME/$TIME.txt"
 
 	# if the log dir does not exist, create it
 [[ -d "$LOG:h" ]] || mkdir -p "$LOG:h"
@@ -124,7 +125,7 @@ do
 
 				# Move the log file to the desktop so we can easily review it later
 				# and so we won't parse it again
-			mv "$line" "$HOME/Desktop/"
+			mv "$line" "$HOME/etc/super-duper-logfiles/$HOST"
 		else
 				# If we get here, there were no problems found, as far as we can tell
 			COPIED=`egrep 'Copied .*items totaling' "$TEXT" | sed 's#.*Copied#Copied#g' | tr -s ' '  ' '`
